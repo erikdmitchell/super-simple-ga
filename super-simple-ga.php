@@ -1,17 +1,17 @@
 <?php
 /**
- * Plugin Name: Strava Leaderboard
+ * Plugin Name: Super Simple GA
  * Plugin URI:
- * Description: The simplest way to integrate GA into your site.
+ * Description: The simplest way to add GA scripts to a theme/site.
  * Version: 0.1.0
  * Author: Erik Mitchell
  * Author URI:
  * License: GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain: slwp
+ * Text Domain: ssga
  * Domain Path: /languages
  *
- * @package emsa
+ * @package ssga
  */
 
 // If this file is called directly, abort.
@@ -19,14 +19,11 @@ if ( ! defined( 'WPINC' ) ) {
     die;
 }
 
-// Load composer autloader.
-require_once( __DIR__ . '/vendor/autoload.php' );
-
-if ( ! defined( 'SLWP_PLUGIN_FILE' ) ) {
-    define( 'SLWP_PLUGIN_FILE', __FILE__ );
+if ( ! defined( 'SSGA_PLUGIN_FILE' ) ) {
+    define( 'SSGA_PLUGIN_FILE', __FILE__ );
 }
 
-// Include the main SLWP class.
-if ( ! class_exists( 'SLWP' ) ) {
-    include_once dirname( __FILE__ ) . '/includes/class-strava-leaderboard.php';
+// Include the main SSGA class.
+if ( ! class_exists( 'SSGA' ) ) {
+    include_once dirname( __FILE__ ) . '/includes/class-super-simple-ga.php';
 }

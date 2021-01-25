@@ -95,7 +95,9 @@ final class Super_Simple_GA {
      * @return void
      */
     public function includes() {
-        include_once( SSGA_PATH . 'includes/class-slwp-api-format.php' );
+        if ( is_admin() ) {
+            include_once( SSGA_PATH . '/admin/class-ssga-admin.php' );
+        }
     }
 
     /**
@@ -105,8 +107,15 @@ final class Super_Simple_GA {
      * @return void
      */
     private function init_hooks() {
-        //add_action( 'init', array( $this, 'load_includes' ), 0 );
+        // add_action( 'init', array( $this, 'load_includes' ), 0 );
+        add_action( 'wp_head', array( $this, 'wp_head' ) );
         add_action( 'wp_enqueue_scripts', array( $this, 'frontend_scripts_styles' ) );
+    }
+
+    public function wp_head() {
+        // add code from admin page.
+        // $code = get_option( '_ssga_code', '' );
+        // validate is code?
     }
 
     /**
@@ -116,7 +125,7 @@ final class Super_Simple_GA {
      * @return void
      */
     public function frontend_scripts_styles() {
-        //wp_enqueue_style( 'slwp-styles', SLWP_ASSETS_URL . 'css/styles.min.css', '', $this->version );
+        // wp_enqueue_style( 'slwp-styles', SLWP_ASSETS_URL . 'css/styles.min.css', '', $this->version );
     }
 
     /**
@@ -155,7 +164,7 @@ final class Super_Simple_GA {
  * @return instance
  */
 function ssga() {
-    return SSGA::instance();
+    return Super_Simple_GA::instance();
 }
 
 // Global for backwards compatibility.
