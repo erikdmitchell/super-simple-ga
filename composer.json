@@ -1,0 +1,28 @@
+{
+    "name": "erikdmitchell/strava-leaderboard",
+    "description": "The simplest way to integrate GA into your site.",
+    "keywords": [
+        "erikdmitchell",
+        "strava"
+    ],
+    "type": "project",
+    "repositories": [],    
+    "require": {},
+    "require-dev": {
+        "squizlabs/php_codesniffer": "3.*",
+        "wp-coding-standards/wpcs": "2.*",
+        "dealerdirect/phpcodesniffer-composer-installer": "*",
+        "phpcompatibility/php-compatibility": "*"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Erik",
+            "email": "erikdmitchell@gmail.com"
+        }
+    ],
+    "scripts": {
+        "phpcs": "phpcs -s -p --standard=./phpcs.ruleset.xml",
+        "phpcbf": "phpcbf -p --standard=./phpcs.ruleset.xml"
+    }    
+}
